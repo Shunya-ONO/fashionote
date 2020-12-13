@@ -1,0 +1,92 @@
+{% extends 'head.html' %}
+{%load static%}
+  {% block content %}
+
+<main id="main">
+    <section id="breadcrumbs" class="breadcrumbs">
+        <div class="container">
+            <ol>
+                <li><a href="{% url 'fashionote:home' %}">Home</a></li>
+            </ol>
+            {% if user.is_authenticated %}
+                {% if user.last_name and user.first_name %}
+                    <h2>こんにちは  {{ user.last_name }}{{ user.first_name }}さん！</h2>
+                {% else %}
+                    <h2>こんにちは  {{ user.username }}さん！</h2>
+                {% endif %}
+        </div>
+    </section>
+
+    <section class="signup">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-lg-4" data-aos="fade-up">
+                    <div class="box"><a href="{% url 'fashionote:create' %}">
+                        <span>01</span>
+                        <h4>ノートを作る</h4>
+                        <p>FashioNoteを作成します</p>
+                    </a></div>
+                </div>
+
+                <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="150">
+                    <div class="box"><a href="{% url 'fashionote:index' %}">
+                        <span>02</span>
+                        <h4>ノートを見る</h4>
+                        <p>登録したFashioNoteを見る</p>
+                    </a></div>
+                </div>
+
+                <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
+                    <div class="box"><a href="{% url 'user_app:logout' %}">
+                        <span>03</span>
+                        <h4>ログアウト</h4>
+                        <p>ログアウトする</p>
+                    </a></div>
+                </div>
+            </div>
+        </div>
+            {% else %}
+            <h2>FashioNoteへようこそ！</h2>
+        </div>
+    </section>
+
+    <section class="signup">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div id="about" class="col-lg-12" data-aos="fade-up">
+                    <h4><strong>FashioNoteとは？</strong></h4>
+                    <p>FashioNoteはあなたの好きなブランドの情報をまとめることができるノートアプリです。</p>
+                </div>
+
+                <div class="col-lg-4" data-aos="fade-up">
+                    <div class="box"><a href="{% url 'user_app:user_create' %}">
+                        <span>01</span>
+                        <h4>新規登録</h4>
+                        <p>初めての方はこちら</p>
+                    </a></div>
+                </div>
+
+                <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="150">
+                    <div class="box"><a href="{% url 'user_app:login' %}">
+                        <span>02</span>
+                        <h4>ログイン</h4>
+                        <p>登録済みの方はこちら</p>
+                    </a></div>
+                </div>
+
+
+            </div>
+        </div>
+
+    {% endif %}
+
+        <br><br><br><br>
+    </section>
+</main>
+{% endblock %}

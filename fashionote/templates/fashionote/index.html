@@ -1,0 +1,84 @@
+{% extends 'head.html' %}
+
+{% block content %}
+<main id="main">
+      <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+        <div class="container">
+  
+          <ol>
+            <li><a href="{% url 'fashionote:home' %}">Home</a></li>
+            <li>ノート一覧</li>
+          </ol>
+          <h2>ノート一覧</h2>
+  
+        </div>
+      </section><!-- End Breadcrumbs -->
+
+  <section>
+    <div class = "container">
+      {% if brand %}
+      <div class="index">
+        <table class="table table-bordered table-hover">
+          <thead class="thead-dark">
+            <tr><th></th><th>ブランド</th><th>URL</th><th>タグ</th><th></th></tr>
+          </thead>
+            {% for s in brand %}
+              {% if s.image %}
+
+                <tr>
+                  <td>
+                    <img src="{{ s.image.url }}" class="rounded-circle" width="50px"  alt="">
+                  </td>
+                  <td>
+                    <a class="show" href="{% url 'fashionote:detail' s.id %}">  {{s.brand_name}}</a>
+                  </td>
+                  <td>
+                    <a href="{{s.url}}">{{s.url}}</a>
+                  </td>
+                  <td>
+                    {% for tag in s.tags.all %}
+                      <span class="badge badge-light">{{ tag }}</span>
+                    {% endfor %}
+                  </td>
+                  <td>
+                    <a class="show" href="{% url 'fashionote:update' s.id %}">編集</a>
+                  </td>
+                </tr>
+
+              {% else %}
+
+                <tr>
+                  <td></td>
+                  <td>
+                    <a class="show" href="{% url 'fashionote:detail' s.id %}">  {{s.brand_name}}</a>
+                  </td>
+                  <td>
+                    <a href="{{s.url}}">{{s.url}}</a>
+                  </td>
+                  <td>
+                    <a class="show" href="{% url 'fashionote:update' s.id %}">編集</a>
+                  </td>
+                  <td>
+                    {% for tag in s.tags.all %}
+                      <span class="badge badge-light">{{ tag }}</span>
+                    {% endfor %}
+                  </td>
+                </tr>
+              {% endif %}
+            {% endfor %}
+          </table>
+      </div>
+      {% else %}
+        <div class="note_create_before">
+          <p>まだノートは作成されていません。</p>
+          <p><a href="{% url 'fashionote:create' %}">ノートを書く</a></p>
+        </div>
+      {% endif %}
+    </div>
+  </section>
+</main>
+
+
+
+{% endblock %}

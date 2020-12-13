@@ -1,0 +1,25 @@
+{% extends "head.html" %}
+{% block content %}
+<main id="main">
+    <section>
+        <form id="registration" action="" method="POST">
+    {{ form.non_field_errors }}
+    <div class="inputs">
+        {{ form.last_name }}
+        {{ form.last_name.errors }}
+        <i class="fa fa-home fa-lg fa-fw" aria-hidden="true"></i>
+    </div>
+    <div class="inputs">
+        {{ form.first_name }}
+        {{ form.first_name.errors }}
+        <i class="fa fa-user fa-lg fa-fw" aria-hidden="true"></i>
+        
+    </div>
+    {% csrf_token %}
+    <div class="btn-area">
+        <input type="submit" value="更新">
+    </div>
+</form>
+    </section>
+</main>
+{% endblock %}

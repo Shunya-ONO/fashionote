@@ -1,0 +1,30 @@
+{% extends "head.html" %}
+{% block content %}
+<main id="main">
+    <section id="form" class="form">
+        <form id ="registration" action="" method="POST">
+            {{ form.non_field_errors }}
+            <div class="inputs">
+                {{ form.email}}
+                {{ form.email.errors }}
+                <i class="fa fa-envelope fa-lg fa-fw" aria-hidden="true"></i>
+            </div>
+            <div class="inputs">
+                {{ form.password1 }}
+                {{ form.password1.errors }}
+                <i class="fa fa-key fa-lg fa-fw" aria-hidden="true"></i>
+                
+            </div>
+            <div class="inputs">
+                {{ form.password2 }}
+                {{ form.password2.errors }}
+                <i class="fa fa-check-circle fa-lg fa-fw" aria-hidden="true"></i>
+            </div>
+            {% csrf_token %}
+            <div class="btn-area">
+                <input type="submit" value="登録">
+            </div>
+        </form>
+    </section>
+</main>
+{% endblock %}

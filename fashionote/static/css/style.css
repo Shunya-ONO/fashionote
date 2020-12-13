@@ -1,0 +1,559 @@
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+#main {
+  background-color: #f8f4e6;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  color: #444444;
+
+}
+
+a {
+  color: #00a3af;
+}
+
+a:hover {
+  color: #3ba7af;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Raleway", sans-serif;
+}
+
+/*--------------------------------------------------------------
+# Back to top button
+--------------------------------------------------------------*/
+.back-to-top {
+  position: fixed;
+  display: none;
+  right: 15px;
+  bottom: 15px;
+  z-index: 99999;
+}
+
+.back-to-top i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  background: #00a3af;
+  color: #fff;
+  transition: all 0.4s;
+}
+
+.back-to-top i:hover {
+  background: #3ba7af;
+  color: #fff;
+}
+
+/* -- Header -- */
+
+.container {
+  max-width: 1350px;
+  width: 100%;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+header {
+  height: 65px;
+  width: 100%;
+  background-color:white;
+  position :fixed;
+  top: 0;
+  z-index: 10;
+}
+
+.header-left img{
+  float: left;
+}
+
+.header-left p{
+  float: left;
+  margin-top: 20px;
+  margin-left: 5px;
+  font-weight: bolder;
+}
+
+.header-right {
+  float: right;
+  margin-right: -100px;
+}
+
+.register{
+  line-height: 2rem;
+  font-size: 12px;
+  color: rgb(201, 198, 198);
+  display: flex;
+  float: right;
+  padding-left: 25px;
+  padding-right: 25px;
+  border: 2px solid #eee;
+  margin-left: 20px; 
+}
+
+.mypage{
+  line-height: 2rem;
+  font-size: 12px;
+  color: rgb(201, 198, 198);
+  display: flex;
+  float: right;
+  padding-left: 25px;
+  padding-right: 25px;
+  border: 2px solid #eee;
+  margin-left: 20px; 
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  margin-top: 10px;
+}
+
+.gnav {
+  float: right;
+  display: flex;
+  height: 2rem;
+  width: 600px;
+  margin-top: 16px;
+}
+
+.gnav > li {/*親階層のみ幅を25%にする*/
+  width: 30%;
+  text-align: center;
+}
+/*全てのリスト・リンク共通*/
+.gnav li {
+  list-style: none;
+  position: relative;
+  text-align: center;
+}
+.gnav li a {
+  background: white;
+  color: black;
+  display: block;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+  font-size: 12px;
+}
+
+/*子階層以降共通*/
+.gnav li li {
+  height: 0;
+  overflow: hidden;
+  transition: 0.8s;
+}
+/*子要素の線をコメントアウト*/
+/*.gnav li li a {border-top: 1px solid #eee;}*/
+.gnav li:hover > ul > li {
+  height: 2rem;
+  overflow: visible;
+}
+
+/* -- Header end -- */
+
+/* -- Home -- */
+#about{
+  padding:70px;
+}
+
+/* -- End Home -- */
+
+/* -- create, login -- */
+form{
+	width:500px;
+  margin:0 auto;
+  margin-top:65px;
+}
+
+#registration{
+  padding-top:20px;
+  padding-bottom:20px;
+}
+
+.inputs{
+	position: relative;
+	width: 100%;
+	margin: 40px 3%;
+	overflow: hidden;
+}
+.input_form{
+	float: left;
+	width: 100%;
+}
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+textarea {
+	font: 15px/24px sans-serif;
+	box-sizing: border-box;
+	margin: 8px 0;
+	transition: 0.3s;
+	outline: none;
+	border: solid 1px #e0e0e0;
+	border-radius:5px;
+	padding:8px;
+	font-size: 15px;
+}
+textarea {
+	height: 100px;
+}
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+	border-color: #00a3af;
+}
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+textarea {
+	padding-left: 40px;
+}
+i {
+	position: absolute;
+	top: 12px;
+	left: 0;
+	padding: 9px 8px;
+	transition: 0.3s;
+  color: #aaaaaa;
+}
+input[type="text"]:focus + i,
+input[type="number"]:focus + i,
+input[type="email"]:focus + i
+input[type="password"]:focus + i,
+textarea:focus + i {
+	color: #00a3af;
+}
+.btn-area{
+  text-align: center;
+}
+input[type="submit"]{
+	background: #00a3af;
+	border: none;
+	color: #fff;
+	font-size:15px;
+	font-weight:bold;
+	padding: 10px 20px;
+	margin: 0 10px;
+	border-radius: 10px;
+}
+input[type="button"]{
+	background: #00a3af;
+	border: none;
+	color: #fff;
+	font-size:15px;
+	font-weight:bold;
+	padding: 10px 20px;
+	margin: 0 10px;
+	border-radius: 10px;
+}
+input[type="reset"]{
+	background: #aaa;
+	border: none;
+	color: #fff;
+	font-size:15px;
+	font-weight:bold;
+	padding: 10px 20px;
+	margin: 0 10px;
+	border-radius: 10px;
+}
+
+#attachment label {
+  /* ボタン部分の見た目（任意） */
+  display: inline-block;
+  position: relative;
+  background: #888;
+  color:#fff;
+  font-size: 16px;
+  padding: 10px 18px;
+  margin-left: 20px;
+  border-radius: 4px;
+  transition: all 0.3s;
+ }
+ #attachment label:hover {
+  background: #aaa;
+  transition: all 0.4s;
+ }
+ #attachment label input {
+  position: absolute;
+  left:0;
+  top:0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+ }
+ #attachment .filename {
+  font-weight: 16px;
+  margin:0 0 0 10px;
+ }
+/* -- create end -- */
+
+/* -- breadcrumbs -- */
+
+.breadcrumbs {
+  padding: 15px 0;
+  background: #efefef;
+  margin-top: 60px;
+}
+
+@media (max-width: 992px) {
+  .breadcrumbs {
+    margin-top: 50px;
+  }
+}
+
+.breadcrumbs h2 {
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0 0 10px 0;
+  margin: 0;
+  font-size: 14px;
+}
+
+.breadcrumbs ol li + li {
+  padding-left: 10px;
+}
+
+.breadcrumbs ol li + li::before {
+  display: inline-block;
+  padding-right: 10px;
+  color: #333333;
+  content: "/";
+}
+
+/* -- breadcrumbs end -- */
+
+.box {
+  padding: 50px 30px;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  transition: all ease-in-out 0.3s;
+}
+
+.box span {
+  display: block;
+  font-size: 28px;
+  font-weight: 700;
+  color: #00a3af;
+}
+
+.box h4 {
+  font-size: 24px;
+  font-weight: 600;
+  padding: 0;
+  margin: 20px 0;
+  color: #191919;
+}
+
+.box p {
+  color: #aaaaaa;
+  font-size: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+.box:hover {
+  background: #00a3af;
+  padding: 30px 30px 70px 30px;
+  box-shadow: 10px 15px 30px rgba(0, 0, 0, 0.18);
+}
+
+.box:hover span, .box:hover h4, .box:hover p {
+  color: #fff;
+}
+
+/* -- Preloader -- */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  overflow: hidden;
+  background: #fff;
+}
+
+#preloader:before {
+  content: "";
+  position: fixed;
+  top: calc(50% - 30px);
+  left: calc(50% - 30px);
+  border: 6px solid #00a3af;
+  border-top-color: #efefef;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  -webkit-animation: animate-preloader 1s linear infinite;
+  animation: animate-preloader 1s linear infinite;
+}
+
+@-webkit-keyframes animate-preloader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animate-preloader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* -- Preloader End -- */
+
+/* -- Index -- */
+.index{
+  padding:70px 0px;
+}
+
+.note_create_before{
+  padding:70px;
+}
+
+/* -- End Index -- */
+
+/* -- detail -- */
+
+.user-detail{
+  padding:100px;
+}
+
+.brand-detail{
+  width:30rem;
+  text-align: center;
+  width: 80%;
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+.title-border {
+  display: flex;
+  align-items: center;
+  }
+  .title-border:before,
+  .title-border:after {
+  border-top: 1px solid;
+  content: "";
+  flex-grow: 1;
+  }
+  .title-border:before {
+  margin-right: 1rem;
+  }
+  .title-border:after {
+  margin-left: 1rem;
+  }
+
+/* -- detail end -- */
+
+/* -- Footer -- */
+#footer {
+  background: #313131;
+  padding: 0 0 30px 0;
+  color: #fff;
+  font-size: 14px;
+}
+
+#footer .footer-top {
+  padding: 60px 0 30px 0;
+}
+
+#footer .footer-top .footer-info {
+  margin-bottom: 15px;
+  background: #191919;
+  color: #fff;
+  border-top: 4px solid #00a3af;
+  text-align: center;
+  padding: 30px 20px;
+}
+
+#footer .footer-top .footer-info h3 {
+  font-size: 36px;
+  margin: 0 0 20px 0;
+  padding: 2px 0 2px 0;
+  line-height: 1;
+  font-weight: 700;
+}
+
+#footer .footer-top .footer-info p {
+  font-size: 14px;
+  line-height: 24px;
+  margin-bottom: 0;
+  font-family: "Raleway", sans-serif;
+}
+
+#footer .footer-top h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+#footer .footer-top .footer-links {
+  margin-bottom: 30px;
+}
+
+#footer .footer-top .footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#footer .footer-top .footer-links ul i {
+  padding-right: 2px;
+  color: #00a3af;
+  font-size: 18px;
+  line-height: 1;
+}
+
+#footer .footer-top .footer-links ul li {
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+#footer .footer-top .footer-links ul li:first-child {
+  padding-top: 0;
+}
+
+#footer .footer-top .footer-links ul a {
+  color: #fff;
+  transition: 0.3s;
+  display: inline-block;
+  line-height: 1;
+}
+
+#footer .footer-top .footer-links ul a:hover {
+  color: #3ba7af;
+}
+
+#footer .creator {
+  border-top: 1px solid #262626;
+  text-align: center;
+  padding-top: 30px;
+}
+/* -- Footer end --*/
