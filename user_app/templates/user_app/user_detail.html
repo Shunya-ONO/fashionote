@@ -26,11 +26,19 @@
                         </tr>
                         <tr>
                             <th>姓</th>
+                            {% if user.last_name %}
                             <td>{{ user.last_name }}</td>
+                            {% else %}
+                            <td>未登録</td>
+                            {% endif %}
                         </tr>
                         <tr>
                             <th>名</th>
+                            {% if user.first_name %}
                             <td>{{ user.first_name }}</td>
+                            {% else %}
+                            <td>未登録</td>
+                            {% endif %}
                         </tr>
                     </tbody>
                 </table>

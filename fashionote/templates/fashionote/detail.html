@@ -22,7 +22,7 @@
         <div class="container-fluid" >
           <div class="row align-items-center">
             {% if brand.image %}
-              <div class="col-md-6" data-aos="zoom">
+              <div class="col-md-6 brand-image" data-aos="zoom">
                 <img src="{{ brand.image.url }}" class="img-fluid img-thumbnail mx-auto d-block" alt="" style="height: 500px">
               </div>
             {% else %}
@@ -39,7 +39,7 @@
             </div>
           {% else %}
             <div class="title-border" data-aos="fade-up" data-aos-delay="100">
-              <h2><b>{{ brand.brand_name }}</b></h2>
+              <h2 style= "padding: 70px"><b>{{ brand.brand_name }}</b></h2>
             </div>
           
           {% endif %}
