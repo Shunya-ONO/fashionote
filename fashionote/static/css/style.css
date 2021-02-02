@@ -6,7 +6,7 @@
 }
 
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
   color: #444444;
 
 }
@@ -21,7 +21,13 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Raleway", sans-serif;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight: "medium";
+  letter-spacing: 0.05em;
+}
+
+p {
+  letter-spacing: 0.1em;
 }
 
 /*--------------------------------------------------------------
@@ -70,100 +76,47 @@ header {
   z-index: 10;
 }
 
-.header-left img{
-  float: left;
+.btn1 {
+  margin-right: 10px;
 }
 
-.header-left p{
-  float: left;
-  margin-top: 20px;
-  margin-left: 5px;
-  font-weight: bolder;
-}
-
-.header-right {
-  float: right;
-  margin-right: -100px;
-}
-
-.register{
-  line-height: 2rem;
-  font-size: 12px;
-  color: rgb(201, 198, 198);
-  display: flex;
-  float: right;
-  padding-left: 25px;
-  padding-right: 25px;
-  border: 2px solid #eee;
-  margin-left: 20px; 
-}
-
-.mypage{
-  line-height: 2rem;
-  font-size: 12px;
-  color: rgb(201, 198, 198);
-  display: flex;
-  float: right;
-  padding-left: 25px;
-  padding-right: 25px;
-  border: 2px solid #eee;
-  margin-left: 20px; 
-}
-
-.logo {
-  width: 50px;
-  height: 50px;
-  margin-top: 10px;
-}
-
-.gnav {
-  float: right;
-  display: flex;
-  height: 2rem;
-  width: 600px;
-  margin-top: 16px;
-}
-
-.gnav > li {/*親階層のみ幅を25%にする*/
-  width: 30%;
-  text-align: center;
-}
-/*全てのリスト・リンク共通*/
-.gnav li {
-  list-style: none;
-  position: relative;
-  text-align: center;
-}
-.gnav li a {
-  background: white;
-  color: black;
-  display: block;
-  height: 2rem;
-  line-height: 2rem;
-  text-align: center;
-  text-decoration: none;
-  width: 100%;
-  font-size: 12px;
-}
-
-/*子階層以降共通*/
-.gnav li li {
-  height: 0;
-  overflow: hidden;
-  transition: 0.8s;
-}
-/*子要素の線をコメントアウト*/
-/*.gnav li li a {border-top: 1px solid #eee;}*/
-.gnav li:hover > ul > li {
-  height: 2rem;
-  overflow: visible;
+.font-color {
+  color: white;
 }
 
 /* -- Header end -- */
 
 /* -- Home -- */
-#about{
-  padding:70px;
+
+.wrap {
+  margin-top:50px;
+  width: 100%;
+  height: 300px;
+  position: relative;
+}
+.wrap .inner {
+  width: 75%;
+  height: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.about{
+  margin-top: 100px;
+  margin-left: 90px;
+  margin-right: 90px;
+}
+
+.function{
+  margin:100px;
+}
+
+.about-image{
+  padding:50px;
 }
 
 /* -- End Home -- */
@@ -172,7 +125,6 @@ header {
 form{
 	width:500px;
   margin:0 auto;
-  margin-top:65px;
 }
 
 #registration{
@@ -195,7 +147,7 @@ input[type="number"],
 input[type="email"],
 input[type="password"],
 textarea {
-	font: 15px/24px sans-serif;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
 	box-sizing: border-box;
 	margin: 8px 0;
 	transition: 0.3s;
@@ -245,7 +197,7 @@ input[type="submit"]{
 	border: none;
 	color: #fff;
 	font-size:15px;
-	font-weight:bold;
+	font-weight:medium;
 	padding: 10px 20px;
 	margin: 0 10px;
 	border-radius: 10px;
@@ -255,7 +207,7 @@ input[type="button"]{
 	border: none;
 	color: #fff;
 	font-size:15px;
-	font-weight:bold;
+	font-weight:medium;
 	padding: 10px 20px;
 	margin: 0 10px;
 	border-radius: 10px;
@@ -265,7 +217,7 @@ input[type="reset"]{
 	border: none;
 	color: #fff;
 	font-size:15px;
-	font-weight:bold;
+	font-weight:medium;
 	padding: 10px 20px;
 	margin: 0 10px;
 	border-radius: 10px;
@@ -299,6 +251,7 @@ input[type="reset"]{
   font-weight: 16px;
   margin:0 0 0 10px;
  }
+
 /* -- create end -- */
 
 /* -- breadcrumbs -- */
@@ -343,6 +296,7 @@ input[type="reset"]{
 /* -- breadcrumbs end -- */
 
 .box {
+  margin-top:30px;
   padding: 50px 30px;
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
   transition: all ease-in-out 0.3s;

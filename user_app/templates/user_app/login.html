@@ -2,6 +2,19 @@
 
 {% block content %}
 <main id="main">
+    <!-- Breadctumbs -->
+    <section id="breadcrumbs" class="breadcrumbs">
+        <div class="container">
+  
+          <ol>
+            <li><a href="{% url 'fashionote:home' %}">Home</a></li>
+            <li>ログイン</li>
+          </ol>
+          <h2>ログイン</h2>
+  
+        </div>
+      </section><!-- End Breadcrumbs -->
+
     <section id="form" class="form">
         <div class="container">
             <form id ="registration" action="{% url 'user_app:login' %}" method="POST">
@@ -17,10 +30,10 @@
                 </div>
                 <div class="btn-area">
                     <input type="submit" value="ログイン">
-                    <a href="{% url 'user_app:user_create' %}"><input type="button" value="会員登録"></a> 
                 </div>
             </form>
         </div>
+
     </section>
 </main>
 

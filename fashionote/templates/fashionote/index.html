@@ -20,21 +20,13 @@
       {% if brand %}
       <div class="index">
         <table class="table table-bordered table-hover">
-          <thead class="thead-dark">
-            <tr><th></th><th>ブランド</th><th>URL</th><th>タグ</th><th></th></tr>
+          <thead style="background-color: #ffffff">
+            <tr><th>ブランド</th><th>タグ</th><th></th></tr>
           </thead>
             {% for s in brand %}
-              {% if s.image %}
-
                 <tr>
                   <td>
-                    <img src="{{ s.image.url }}" class="rounded-circle" width="50px"  alt="">
-                  </td>
-                  <td>
-                    <a class="show" href="{% url 'fashionote:detail' s.id %}">  {{s.brand_name}}</a>
-                  </td>
-                  <td>
-                    <a href="{{s.url}}">{{s.url}}</a>
+                    <a class="show" href="{% url 'fashionote:detail' s.id %}">  <b>{{s.brand_name}}</b></a>
                   </td>
                   <td>
                     {% for tag in s.tags.all %}
@@ -44,28 +36,8 @@
                   <td>
                     <a class="show" href="{% url 'fashionote:update' s.id %}">編集</a>
                   </td>
+                  
                 </tr>
-
-              {% else %}
-
-                <tr>
-                  <td></td>
-                  <td>
-                    <a class="show" href="{% url 'fashionote:detail' s.id %}">  {{s.brand_name}}</a>
-                  </td>
-                  <td>
-                    <a href="{{s.url}}">{{s.url}}</a>
-                  </td>
-                  <td>
-                    <a class="show" href="{% url 'fashionote:update' s.id %}">編集</a>
-                  </td>
-                  <td>
-                    {% for tag in s.tags.all %}
-                      <span class="badge badge-light">{{ tag }}</span>
-                    {% endfor %}
-                  </td>
-                </tr>
-              {% endif %}
             {% endfor %}
           </table>
       </div>

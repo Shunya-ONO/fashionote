@@ -1,8 +1,21 @@
 {% extends "head.html" %}
 {% block content %}
 <main id="main">
+    <!-- Breadctumbs -->
+    <section id="breadcrumbs" class="breadcrumbs">
+        <div class="container">
+  
+          <ol>
+            <li><a href="{% url 'fashionote:home' %}">Home</a></li>
+            <li>会員登録</li>
+          </ol>
+          <h2>会員登録</h2>
+  
+        </div>
+      </section><!-- End Breadcrumbs -->
+
     <section id="form" class="form">
-        <form id ="registration" action="" method="POST">
+        <form id="registration" action="" method="POST">
             {{ form.non_field_errors }}
             <div class="inputs">
                 {{ form.email}}
@@ -13,7 +26,7 @@
                 {{ form.password1 }}
                 {{ form.password1.errors }}
                 <i class="fa fa-key fa-lg fa-fw" aria-hidden="true"></i>
-                
+
             </div>
             <div class="inputs">
                 {{ form.password2 }}

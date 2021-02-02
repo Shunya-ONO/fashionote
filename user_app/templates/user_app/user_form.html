@@ -1,6 +1,19 @@
 {% extends "head.html" %}
 {% block content %}
 <main id="main">
+    <!-- Breadctumbs -->
+    <section id="breadcrumbs" class="breadcrumbs">
+        <div class="container">
+  
+          <ol>
+            <li><a href="{% url 'fashionote:home' %}">Home</a></li>
+            <li>マイページ</li>
+            <li>登録情報変更</li>
+          </ol>
+          <h2>登録情報変更</h2>
+  
+        </div>
+      </section><!-- End Breadcrumbs -->
     <section>
         <form id="registration" action="" method="POST">
     {{ form.non_field_errors }}

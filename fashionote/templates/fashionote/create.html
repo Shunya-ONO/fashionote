@@ -16,10 +16,10 @@
   
         </div>
       </section><!-- End Breadcrumbs -->
-
+      
       <section id="form" class="form">
         <div class="row" data-aos="fade-up">
-            <div class="container-fluid">
+            <div class="container-fluid col-lg-6">
                 <form method="POST" novalidate enctype="multipart/form-data">
                     {% csrf_token %}
 
@@ -62,9 +62,7 @@
                 <p>{{ message }}</p>
             </div>
         </div>
-        
-
-    </section>
-      
-        </main>
+      </section>
+    
+</main>
 {% endblock %}
