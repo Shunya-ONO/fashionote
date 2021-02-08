@@ -119,16 +119,23 @@ header {
   padding:50px;
 }
 
-.brand-image{
-  padding:100px;
-}
-
 /* -- End Home -- */
 
 /* -- create, login -- */
-form{
+.form{
 	width:500px;
   margin:0 auto;
+}
+
+.note_create_form{
+  width:500px;
+  margin:0 auto;
+}
+
+.login_form{
+  width:300px;
+  margin-right: auto;
+  margin-left : auto;
 }
 
 #registration{
@@ -193,9 +200,15 @@ input[type="password"]:focus + i,
 textarea:focus + i {
 	color: #00a3af;
 }
-.btn-area{
-  text-align: center;
+.user-btn-area{
+  width:100px;
+  margin:0 auto;
 }
+
+.btn-area{
+  text-align:center;
+}
+
 input[type="submit"]{
 	background: #00a3af;
 	border: none;
@@ -385,7 +398,9 @@ input[type="reset"]{
 
 /* -- Index -- */
 .index{
-  padding:70px 0px;
+  padding-left:50px;
+  padding-right:50px;
+  padding-bottom: 70px;
 }
 
 .note_create_before{
@@ -423,6 +438,10 @@ input[type="reset"]{
   }
   .title-border:after {
   margin-left: 1rem;
+  }
+
+  .brand-image{
+    padding:100px;
   }
 
 /* -- detail end -- */

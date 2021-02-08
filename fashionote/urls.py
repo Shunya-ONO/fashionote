@@ -9,7 +9,7 @@ app_name = 'fashionote'
 
 urlpatterns = [
     path(r'', views.home, name='home'),
-    path(r'index', views.index, name='index'),
+    path(r'index/', views.Index.as_view(), name='index'),
     path(r'detail/<int:brand_id>', views.detail, name='detail'),
     path(r'create', views.create, name='create'),
     path(r'detail/<int:brand_id>/update',views.update, name="update"),

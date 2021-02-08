@@ -17,13 +17,20 @@
 
   <section>
     <div class = "container">
-      {% if brand %}
+        <form action="" method="get">
+          <div class="inputs">
+            <input name="query"  value="{{ request.GET.query }}" type="text">
+            <button type="submit" class="btn btn-info rounded-pill">Search</button>
+            <i class="fa fa-search fa-lg fa-fw" aria-hidden="true"></i>
+          </div> 
+        </form>
+      {% if object_list %}
       <div class="index">
         <table class="table table-bordered table-hover">
           <thead style="background-color: #ffffff">
             <tr><th>ブランド</th><th>タグ</th><th></th></tr>
           </thead>
-            {% for s in brand %}
+            {% for s in object_list %}
                 <tr>
                   <td>
                     <a class="show" href="{% url 'fashionote:detail' s.id %}">  <b>{{s.brand_name}}</b></a>

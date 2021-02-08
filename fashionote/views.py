@@ -3,18 +3,34 @@ from .models import Brand
 from django.contrib.auth.decorators import login_required
 from .forms import BrandForm
 from django.db import models
+from django.views.generic import ListView
+from .mixin import *
+from django.db.models import Q
 
 # Create your views here.
 
 def home(request):
     return render(request, 'fashionote/home.html', {})
 
-@login_required
-def index(request):
-    """一覧画面"""
-    brand = Brand.objects.filter(create_user=request.user)
-    data = {'brand':brand}
-    return render(request,'fashionote/index.html',data)
+class Index(LoginRequiredMixin,ListView):
+    template_name="fashionote/index.html"
+
+    def get_queryset(self):
+
+        if self.request.GET.get('query'):
+            queryset = Brand.objects.filter(create_user=self.request.user)
+            q_word = self.request.GET.get('query')
+    
+            if q_word:
+                object_list = queryset.filter(
+                    Q(brand_name__icontains=q_word) | Q(concept__icontains=q_word) | Q(memo__icontains=q_word))
+            else:
+                object_list = queryset
+            return object_list
+    
+        else:
+            queryset = Brand.objects.filter(create_user=self.request.user)
+            return queryset
 
 @login_required
 def detail(request,brand_id):
