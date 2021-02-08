@@ -1,68 +1,70 @@
 {% extends 'head.html' %}
 
+<!-- Django-taggitを読み込むためのテンプレートタグ -->
 {% load widget_tweaks %}
 
 {% block content %}
 <main id="main">
-      <!-- ======= Breadcrumbs ======= -->
-    <section id="breadcrumbs" class="breadcrumbs">
-        <div class="container">
-  
-          <ol>
-            <li><a href="{% url 'fashionote:home' %}">Home</a></li>
-            <li>ノートを書く</li>
-          </ol>
-          <h2>ノートを書く</h2>
-  
+  <!-- パンくずリスト -->
+  <section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
+
+      <ol>
+        <li><a href="{% url 'fashionote:home' %}">Home</a></li>
+        <li>ノートを書く</li>
+      </ol>
+      <h2>ノートを書く</h2>
+
+    </div>
+  </section>
+  <!-- パンくずリスト ここまで -->
+
+  <!-- ノート作成フォーム -->
+  <section class="note_create_form">
+    <div class="container-fluid" data-aos="fade-up">
+      <form method="POST" novalidate enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="inputs">
+          {{ form.brand_name }}
+          <i class="fa fa-tshirt fa-lg fa-fw" aria-hidden="true"></i>
         </div>
-      </section><!-- End Breadcrumbs -->
-      
-      <section id="form" class="note_create_form">
-        <div class="row" data-aos="fade-up">
-            <div class="container-fluid col-lg-12">
-                <form method="POST" novalidate enctype="multipart/form-data">
-                    {% csrf_token %}
 
-                    <div class="inputs">
-                      {{ form.brand_name }}
-                      <i class="fa fa-tshirt fa-lg fa-fw" aria-hidden="true"></i>
-                    </div>
-
-                    <div class="inputs">
-                      {{ form.concept }}
-                      <i class="fa fa-clipboard fa-lg fa-fw" aria-hidden="true"></i>
-                    </div>
-
-                    <div class="inputs">
-                      {{ form.memo }}
-                      <i class="fa fa-comment fa-lg fa-fw" aria-hidden="true"></i>
-                    </div>
-
-                    <div class="inputs">
-                      {{ form.url }}
-                      <i class="fa fa-align-left fa-lg fa-fw" aria-hidden="true"></i>
-                    </div>
-
-                    <div id="attachment">
-                      <label>{{form.image|add_class:"fileinput"}}{{ form.image.label }}</label>
-                      <span class="filename">選択されていません</span>
-                     </div>
-
-                    <div class="inputs">
-                      {{ form.tags }}
-                      <i class="fa fa-tags fa-lg fa-fw" aria-hidden="true"></i>
-                    </div>
-                    
-                    <div class="btn-area">
-                      <input type="reset" value="リセット">
-                      <input type="submit" value="登録">
-                    </div>
-                    
-                </form>
-                <p>{{ message }}</p>
-            </div>
+        <div class="inputs">
+          {{ form.concept }}
+          <i class="fa fa-clipboard fa-lg fa-fw" aria-hidden="true"></i>
         </div>
-      </section>
-    
+
+        <div class="inputs">
+          {{ form.memo }}
+          <i class="fa fa-comment fa-lg fa-fw" aria-hidden="true"></i>
+        </div>
+
+        <div class="inputs">
+          {{ form.url }}
+          <i class="fa fa-align-left fa-lg fa-fw" aria-hidden="true"></i>
+        </div>
+
+        <div id="attachment">
+          <label>{{form.image|add_class:"fileinput"}}{{ form.image.label }}</label>
+          <span class="filename">選択されていません</span>
+        </div>
+
+        <div class="inputs">
+          {{ form.tags }}
+          <i class="fa fa-tags fa-lg fa-fw" aria-hidden="true"></i>
+        </div>
+
+        <div class="btn-area">
+          <input type="reset" value="リセット">
+          <input type="submit" value="登録">
+        </div>
+
+      </form>
+      <p>{{ message }}</p>
+    </div>
+  </section>
+  <!-- End -->
+
 </main>
 {% endblock %}

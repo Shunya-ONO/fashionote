@@ -2,60 +2,74 @@
 
 {% block content %}
 <main id="main">
-      <!-- ======= Breadcrumbs ======= -->
-    <section id="breadcrumbs" class="breadcrumbs">
-        <div class="container">
-  
-          <ol>
-            <li><a href="{% url 'fashionote:home' %}">Home</a></li>
-            <li>ノート一覧</li>
-          </ol>
-          <h2>ノート一覧</h2>
-  
-        </div>
-      </section><!-- End Breadcrumbs -->
+  <!-- パンくずリスト -->
+  <section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
 
+      <ol>
+        <li><a href="{% url 'fashionote:home' %}">Home</a></li>
+        <li>ノート一覧</li>
+      </ol>
+      <h2>ノート一覧</h2>
+
+    </div>
+  </section>
+  <!-- End -->
+
+  <!-- ノート一覧部分 -->
   <section>
-    <div class = "container">
-        <form action="" method="get">
-          <div class="inputs">
-            <input name="query"  value="{{ request.GET.query }}" type="text">
-            <button type="submit" class="btn btn-info rounded-pill">Search</button>
-            <i class="fa fa-search fa-lg fa-fw" aria-hidden="true"></i>
-          </div> 
-        </form>
+    <div class="container">
+
+      <!-- 検索フォーム -->
+      <form action="" method="get">
+        <div class="inputs">
+          <input name="query" value="{{ request.GET.query }}" type="text">
+          <button type="submit" class="btn btn-info rounded-pill">Search</button>
+          <i class="fa fa-search fa-lg fa-fw" aria-hidden="true"></i>
+        </div>
+      </form>
+      <!-- 検索フォームここまで -->
+
+      <!-- ノートが一つでも存在するときはテーブルを表示 -->
       {% if object_list %}
       <div class="index">
         <table class="table table-bordered table-hover">
           <thead style="background-color: #ffffff">
-            <tr><th>ブランド</th><th>タグ</th><th></th></tr>
+            <tr>
+              <th>ブランド</th>
+              <th>タグ</th>
+              <th></th>
+            </tr>
           </thead>
-            {% for s in object_list %}
-                <tr>
-                  <td>
-                    <a class="show" href="{% url 'fashionote:detail' s.id %}">  <b>{{s.brand_name}}</b></a>
-                  </td>
-                  <td>
-                    {% for tag in s.tags.all %}
-                      <span class="badge badge-light">{{ tag }}</span>
-                    {% endfor %}
-                  </td>
-                  <td>
-                    <a class="show" href="{% url 'fashionote:update' s.id %}">編集</a>
-                  </td>
-                  
-                </tr>
-            {% endfor %}
-          </table>
+          {% for object in object_list %}
+          <tr>
+            <td>
+              <a class="show" href="{% url 'fashionote:detail' object.id %}"> <b>{{object.brand_name}}</b></a>
+            </td>
+            <td>
+              {% for tag in object.tags.all %}
+              <span class="badge badge-light">{{ tag }}</span>
+              {% endfor %}
+            </td>
+            <td>
+              <a class="show" href="{% url 'fashionote:update' object.id %}">編集</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </table>
       </div>
+
+      <!-- ノートが存在しないときはcreateへのリンクを表示 -->
       {% else %}
-        <div class="note_create_before">
-          <p>まだノートは作成されていません。</p>
-          <p><a href="{% url 'fashionote:create' %}">ノートを書く</a></p>
-        </div>
+      <div class="note_create_before">
+        <p>まだノートは作成されていません。</p>
+        <p><a href="{% url 'fashionote:create' %}">ノートを書く</a></p>
+      </div>
       {% endif %}
     </div>
   </section>
+  <!-- End -->
+
 </main>
 
 

@@ -440,8 +440,21 @@ input[type="reset"]{
   margin-left: 1rem;
   }
 
-  .brand-image{
+  .brand-image {
     padding:100px;
+  }
+
+  .memo {
+    padding-top:20px;
+  }
+
+  .tag {
+    padding-top:20px;
+  }
+
+  .detail-btn-area {
+    text-align:center;
+    padding-bottom:50px;
   }
 
 /* -- detail end -- */

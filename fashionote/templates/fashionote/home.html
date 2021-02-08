@@ -1,24 +1,40 @@
 {% extends 'head.html' %}
-{%load static%}
+
+{% load static %}
+
 {% block content %}
 
 <main id="main">
+
+    <!-- パンくずリスト -->
     <section id="breadcrumbs" class="breadcrumbs">
         <div class="container">
             <ol>
                 <li><a href="{% url 'fashionote:home' %}">Home</a></li>
             </ol>
+
+            <!-- ログイン済みの場合 -->
             {% if user.is_authenticated %}
+
+            <!-- 名前を登録済みの場合 名前を表示 -->
             {% if user.last_name and user.first_name %}
             <h2>こんにちは {{ user.last_name }}{{ user.first_name }}さん！</h2>
-            {% else %}
-            <h2>こんにちは {{ user.username }}さん！</h2>
-            {% endif %}
         </div>
     </section>
 
-    <section class="signup">
+            <!-- 登録していないときはメールアドレスを表示 -->
+            {% else %}
+            <h2>こんにちは {{ user.username }}さん！</h2>
+        </div>
+    </section>
 
+    
+    {% endif %}
+
+    <!-- End -->
+
+    <!-- ホーム画面 -->
+    <section>
         <div class="container">
 
             <div class="row function">
@@ -48,9 +64,14 @@
                 </div>
             </div>
         </div>
-        {% else %}
-        <h2>FashioNoteへようこそ！</h2>
-        </div>
+        <br><br><br><br>
+    </section>
+
+    <!-- ログインしていないとき -->
+    {% else %}
+    
+    <h2>FashioNoteへようこそ！</h2>
+    </div>
     </section>
 
     <section class="signup">
@@ -88,10 +109,9 @@
                 </div>
             </div>
         </div>
-
-        {% endif %}
-
         <br><br><br><br>
     </section>
+
+    {% endif %}
 </main>
 {% endblock %}
