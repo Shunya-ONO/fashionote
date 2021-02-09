@@ -207,6 +207,7 @@ textarea:focus + i {
 
 .btn-area{
   text-align:center;
+  padding-bottom:50px;
 }
 
 input[type="submit"]{

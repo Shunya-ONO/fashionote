@@ -21,7 +21,7 @@
     <div class="container">
 
       <!-- 検索フォーム -->
-      <form action="" method="get">
+      <form action="" method="get" data-aos="fade-up">
         <div class="inputs">
           <input name="query" value="{{ request.GET.query }}" type="text">
           <button type="submit" class="btn btn-info rounded-pill">Search</button>
@@ -32,7 +32,7 @@
 
       <!-- ノートが一つでも存在するときはテーブルを表示 -->
       {% if object_list %}
-      <div class="index">
+      <div class="index" data-aos="fade-up" data-aos-delay="100">
         <table class="table table-bordered table-hover">
           <thead style="background-color: #ffffff">
             <tr>
