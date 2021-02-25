@@ -1,0 +1,55 @@
+{% extends 'head.html' %}
+
+{% block content %}
+<main id="main">
+  <!-- パンくずリスト -->
+  <section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
+
+      <ol>
+        <li><a href="{% url 'fashionote:home' %}">Home</a></li>
+        <li><a href="{% url 'fashionote:index' %}">ノート一覧</a></li>
+        <li>タグ検索</li>
+        <li>{{ tag }}</li>
+      </ol>
+      <h2>{{ tag }} がタグ付けられた記事</h2>
+
+    </div>
+  </section>
+  <!-- End -->
+
+  <!-- ノート一覧部分 -->
+  <section>
+    <div class="container">
+
+      <div class="tag" data-aos="fade-up" data-aos-delay="100">
+        <table class="table table-bordered table-hover">
+          <thead style="background-color: #ffffff">
+            <tr>
+              <th>ブランド</th>
+              <th>タグ</th>
+            </tr>
+          </thead>
+          {% for brand in brands %}
+          <tr>
+            <td>
+              <a class="show" href="{% url 'fashionote:detail' brand.id %}"> <b>{{brand.brand_name}}</b></a>
+            </td>
+            <td>
+              {% for tag in brand.tags.all %}
+              <a href="{% url 'fashionote:tag' tag %}"><span class="badge badge-light">{{ tag }}</span></a>
+              {% endfor %}
+            </td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+  </section>
+  <!-- End -->
+
+</main>
+
+
+
+{% endblock %}

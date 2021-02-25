@@ -10,7 +10,8 @@
 
       <ol>
         <li><a href="{% url 'fashionote:home' %}">Home</a></li>
-        <li>ノートを見る</li>
+        <li><a href="{% url 'fashionote:index' %}">ノート一覧</a></li>
+        <li>{{ brand.brand_name }}</li>
       </ol>
       <h2>{{ brand.brand_name }}</h2>
 
@@ -31,7 +32,7 @@
 
         <!-- 設定されていないときはNoImageの画像を表示 -->
         {% else %}
-        <div class="col-md-6" data-aos="zoom">
+        <div class="col-md-6 brand-image" data-aos="zoom">
           <img src="{% static 'img/no_image_square.jpg'%}" class="img-fluid img-thumbnail mx-auto d-block" alt=""
             style="height: 500px">
         </div>
@@ -87,7 +88,7 @@
               <div class="card" style="margin-bottom:50px">
                 <div class="card-body">
                   {% for tag in brand.tags.all %}
-                  <span class="badge badge-light">{{ tag }}</span>
+                  <a href="{% url 'fashionote:tag' tag %}"><span class="badge badge-light">{{ tag }}</span></a>
                   {% endfor %}
                 </div>
               </div>

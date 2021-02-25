@@ -6,6 +6,7 @@ from django.db import models
 from django.views.generic import ListView
 from .mixin import *
 from django.db.models import Q
+from taggit.models import Tag
 
 # Create your views here.
 
@@ -23,14 +24,19 @@ class Index(LoginRequiredMixin,ListView):
     
             if q_word:
                 object_list = queryset.filter(
-                    Q(brand_name__icontains=q_word) | Q(concept__icontains=q_word) | Q(memo__icontains=q_word))
+                    Q(brand_name__icontains=q_word) | Q(concept__icontains=q_word) | Q(memo__icontains=q_word)).order_by('brand_name')
             else:
                 object_list = queryset
             return object_list
     
         else:
-            queryset = Brand.objects.filter(create_user=self.request.user)
+            queryset = Brand.objects.filter(create_user=self.request.user).order_by('brand_name')
             return queryset
+
+@login_required
+def tag(request, tag):
+    brands = Brand.objects.filter(tags__name__in=[tag],create_user=request.user).order_by("brand_name")
+    return render(request, 'fashionote/tag.html', {'brands': brands ,'tag':tag })
 
 @login_required
 def detail(request,brand_id):
@@ -71,6 +77,7 @@ def update(request, brand_id):
     else:
         form = BrandForm(instance=brand)
         return render(request, 'fashionote/update.html', {'form':form, 'brand':brand})
+
 @login_required
 def delete(request, brand_id):
     """削除"""
