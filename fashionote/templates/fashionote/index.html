@@ -38,7 +38,6 @@
             <tr>
               <th>ブランド</th>
               <th>タグ</th>
-              <th></th>
             </tr>
           </thead>
           {% for object in object_list %}
@@ -48,11 +47,8 @@
             </td>
             <td>
               {% for tag in object.tags.all %}
-              <span class="badge badge-light">{{ tag }}</span>
+              <a href="{% url 'fashionote:tag' tag %}"><span class="badge badge-light">{{ tag }}</span></a>
               {% endfor %}
-            </td>
-            <td>
-              <a class="show" href="{% url 'fashionote:update' object.id %}">編集</a>
             </td>
           </tr>
           {% endfor %}
